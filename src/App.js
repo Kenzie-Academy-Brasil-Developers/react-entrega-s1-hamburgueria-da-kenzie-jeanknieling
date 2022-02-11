@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
+import Header from './components/Header';
+import ProductsList from './components/ProductsList';
+import Cart from './components/Cart';
+import CartProduct from './components/CartProduct';
 import './App.css';
 
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetch(`https://hamburgueria-kenzie-json-serve.herokuapp.com/products`)
+            .then(response => response.json())
+            .then(response => setProducts(response))
+            .catch((error) => console.log(error));
+    } , []);
+
+    console.log(products)
+    return (
+
+        <div className="App">
+
+            <Header/>
+            <main className="mainContainer">
+                <ProductsList products={products}/>
+                <Cart products={products}/>
+            </main>
+
+        </div>
+
+    );
+
 }
 
 export default App;
