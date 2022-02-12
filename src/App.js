@@ -2,30 +2,78 @@ import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import ProductsList from './components/ProductsList';
 import Cart from './components/Cart';
-import CartProduct from './components/CartProduct';
 import './App.css';
 
+export let handleClick = "";
+export let showProducts = "";
 
 function App() {
 
     const [products, setProducts] = useState([]);
-
+    const [currentSale, setCurrentSale] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [counter, setCounter] = useState(0);
+    const [inputValue, setInputValue] = useState(0);
+    const [filtered, setFiltered] = useState(false);
+    
     useEffect(() => {
         fetch(`https://hamburgueria-kenzie-json-serve.herokuapp.com/products`)
-            .then(response => response.json())
-            .then(response => setProducts(response))
-            .catch((error) => console.log(error));
+        .then(response => response.json())
+        .then(response => {
+            setProducts(response)
+            setFilteredProducts(response)
+        })
+        .catch((error) => console.log(error));
     } , []);
+    
 
-    console.log(products)
+    handleClick = (productId, action) => {
+        
+        if(action === 'remove') {
+
+            const auxArr = [...currentSale.filter(product => product.id === productId)];
+            auxArr.length = auxArr.length - 1;
+            
+
+            setCurrentSale([...currentSale.filter(product => product.id !== productId), ...auxArr]);
+
+        } else {
+
+            setCurrentSale([...currentSale, ...products.filter(product => product.id === productId)]);
+
+        }
+
+    }
+
+    showProducts = (event) => {
+        
+        event.preventDefault();
+
+
+        setFilteredProducts(products.filter(product => {
+
+            return product.name.includes(inputValue) || product.category.includes(inputValue);
+            
+        }));
+
+        //setFiltered(inputValue === "" ? false : true);
+
+        console.log(filteredProducts)
+    }
+   // console.log(products) 
+
     return (
 
         <div className="App">
 
-            <Header/>
+            <Header inputValue={inputValue} setInputValue={setInputValue} filtered={filtered} setFiltered={setFiltered}/>
+
             <main className="mainContainer">
-                <ProductsList products={products}/>
-                <Cart products={products}/>
+
+                <ProductsList products={products} filteredProducts={filteredProducts} currentSale={currentSale} setCurrentSale={setCurrentSale} filtered={filtered} setFiltered={setFiltered} counter={counter} setCounter={setCounter}/>
+
+                <Cart products={products} currentSale={currentSale} setCurrentSale={setCurrentSale} counter={counter} setCounter={setCounter}/>
+
             </main>
 
         </div>

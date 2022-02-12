@@ -4,3 +4,7 @@
     min-height: 225px;
     margin: 30px 0;
 }
+
+button {
+    cursor: pointer;
+}

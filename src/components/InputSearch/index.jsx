@@ -1,13 +1,14 @@
+import { showProducts } from '../../App';
 import './style.css';
 
-const InputSearch = () => {
+const InputSearch = ({ inputValue, setInputValue, filtered, setFiltered }) => {
 
     return (
 
-        <form>
+        <form onSubmit={(event) => showProducts(event)}>
 
-            <input type="text"/>
-            <input type="submit"/>
+            <input type="text" onChange={(event) => setInputValue(event.target.value)}/>
+            <input type="submit" value="Pesquisar"/>
         
         </form>
 

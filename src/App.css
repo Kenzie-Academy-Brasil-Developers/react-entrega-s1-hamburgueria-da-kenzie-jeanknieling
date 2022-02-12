@@ -11,8 +11,12 @@
 }
 
 @media(min-width: 900px) {
+
     .mainContainer {
         display: flex;
+        flex-direction: row;
         justify-content: space-around;
+        align-items: flex-start;
     }
+
 }
