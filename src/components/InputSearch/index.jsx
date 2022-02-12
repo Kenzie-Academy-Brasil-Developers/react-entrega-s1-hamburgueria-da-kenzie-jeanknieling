@@ -5,7 +5,7 @@ const InputSearch = ({ inputValue, setInputValue, filtered, setFiltered }) => {
 
     return (
 
-        <form onSubmit={(event) => showProducts(event)}>
+        <form action="" onSubmit={(event) => showProducts(event)}>
 
             <input type="text" onChange={(event) => setInputValue(event.target.value)}/>
             <input type="submit" value="Pesquisar"/>

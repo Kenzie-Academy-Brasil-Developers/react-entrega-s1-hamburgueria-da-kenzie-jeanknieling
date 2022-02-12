@@ -13,7 +13,7 @@ function App() {
     const [currentSale, setCurrentSale] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [counter, setCounter] = useState(0);
-    const [inputValue, setInputValue] = useState(0);
+    const [inputValue, setInputValue] = useState('');
     const [filtered, setFiltered] = useState(false);
     
     useEffect(() => {
@@ -49,18 +49,18 @@ function App() {
         
         event.preventDefault();
 
+        setFiltered(event.target.firstChild.value === "" ? false : true);
+        
+        event.target.firstChild.value = "";
+        event.target.firstChild.focus();
 
         setFilteredProducts(products.filter(product => {
 
-            return product.name.includes(inputValue) || product.category.includes(inputValue);
+            return product.name.toLowerCase().includes(inputValue.toLowerCase()) || product.category.toLowerCase().includes(inputValue.toLowerCase());
             
         }));
 
-        //setFiltered(inputValue === "" ? false : true);
-
-        console.log(filteredProducts)
     }
-   // console.log(products) 
 
     return (
 

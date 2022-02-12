@@ -1,6 +1,6 @@
 import './style.css';
 
-const CartTotal = ({ totalValue, setCurrentSale}) => {
+const CartTotal = ({ totalValue, setCurrentSale, counter, setCounter }) => {
 
     return (
 
@@ -13,7 +13,13 @@ const CartTotal = ({ totalValue, setCurrentSale}) => {
             
             </div>
 
-            <button onClick={() => setCurrentSale([])}>Remover todos</button>
+            <button onClick={() => {
+
+                setCurrentSale([]);
+
+                //setCounter(counter - counter);
+
+            }}>Remover todos</button>
 
         </>
 

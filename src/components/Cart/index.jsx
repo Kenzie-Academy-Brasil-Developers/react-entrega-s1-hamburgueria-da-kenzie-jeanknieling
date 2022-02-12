@@ -22,7 +22,7 @@ const Cart = ({ products, currentSale, setCurrentSale, counter, setCounter }) =>
 
             {
 
-                currentSale.length !== 0 && <CartTotal currentSale={currentSale} setCurrentSale={setCurrentSale} totalValue={totalValue}/>
+                currentSale.length !== 0 && <CartTotal currentSale={currentSale} setCurrentSale={setCurrentSale} totalValue={totalValue} counter={counter} setCounter={setCounter}/>
 
             }
 

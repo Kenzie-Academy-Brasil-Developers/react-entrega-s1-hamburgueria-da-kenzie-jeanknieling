@@ -24,7 +24,7 @@ const Product = ({ product, counter, setCounter, filtered, setFiltered }) => {
     
                     <button onClick={(event) => {
 
-                        setCounter(counter + 1);
+                        //setCounter(counter + 1);
     
                         handleClick(Number(event.target.closest('li').id));
     

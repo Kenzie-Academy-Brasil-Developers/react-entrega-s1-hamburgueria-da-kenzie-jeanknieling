@@ -22,13 +22,13 @@ const CartProduct = ({ product, currentSale, counter, setCounter }) => {
 
         <>
             {
-                obj[product.id] === 1 && 
+                
 
                 <li id={product.id}>
 
                     
                     <figure>
-                        <span>{counter}</span>
+                        <span>{obj[product.id]}</span>
                         <img className="mini-car" src={CartImage} alt={`Imagem ilustrativa de quantidade no carrinho`}/>
                     </figure>
                     
@@ -43,7 +43,7 @@ const CartProduct = ({ product, currentSale, counter, setCounter }) => {
 
                     <button onClick={(event) => {
 
-                        setCounter(counter - 1);
+                        //setCounter(counter - 1);
 
                         handleClick(Number(event.target.closest('li').id), "remove");
 

@@ -3,7 +3,7 @@ import './style.css';
 
 const ProductsList = ({ products, currentSale, setCurrentSale, counter, setCounter, filtered, setFiltered, filteredProducts }) => {
 
-    console.log(filtered,filteredProducts, products)
+    console.log(filtered, filteredProducts, products)
 
     return (
 
@@ -13,7 +13,17 @@ const ProductsList = ({ products, currentSale, setCurrentSale, counter, setCount
             
                 {
 
-                    filtered ? products : filteredProducts.map((product, index) => (
+                    filtered ? 
+
+                    filteredProducts.map((product, index) => (
+
+                            <Product products={products} product={product} currentSale={currentSale} setCurrentSale={setCurrentSale} index={index} counter={counter} setCounter={setCounter} filtered={filtered} setFiltered={setFiltered} key={index}/>
+
+                        )) 
+
+                    : 
+                    
+                        products.map((product, index) => (
 
                         <Product products={products} product={product} currentSale={currentSale} setCurrentSale={setCurrentSale} index={index} counter={counter} setCounter={setCounter} filtered={filtered} setFiltered={setFiltered} key={index}/>
 
