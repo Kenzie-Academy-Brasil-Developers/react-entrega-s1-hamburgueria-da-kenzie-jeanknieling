@@ -17,6 +17,7 @@ function App() {
     const [filtered, setFiltered] = useState(false);
     
     useEffect(() => {
+
         fetch(`https://hamburgueria-kenzie-json-serve.herokuapp.com/products`)
         .then(response => response.json())
         .then(response => {
@@ -24,6 +25,7 @@ function App() {
             setFilteredProducts(response)
         })
         .catch((error) => console.log(error));
+
     } , []);
     
 
@@ -31,11 +33,11 @@ function App() {
         
         if(action === 'remove') {
 
-            const auxArr = [...currentSale.filter(product => product.id === productId)];
-            auxArr.length = auxArr.length - 1;
-            
+            let auxArr = [...currentSale];
 
-            setCurrentSale([...currentSale.filter(product => product.id !== productId), ...auxArr]);
+            auxArr = currentSale.splice(currentSale.findIndex(product => product.id === productId), 1);
+            
+            setCurrentSale([...currentSale]);
 
         } else {
 

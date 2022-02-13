@@ -1,31 +1,39 @@
+import { useEffect } from 'react';
 import { handleClick } from '../../App';
 import CartImage from '../images/shopping-cart.png';
 import './style.css';
 
 
-const CartProduct = ({ product, currentSale, counter, setCounter }) => {
+const CartProduct = ({ product, currentSale, productsLimite, counter, setCounter }) => {
 
     const obj = {}
                 
     for(let i = 0; i < currentSale.length; i++) {
+
         if(obj[currentSale[i].id] === undefined) {
             obj[currentSale[i].id] = 1;
         } else {
             obj[currentSale[i].id]++;
         }
+
     }
 
-    console.log(obj, obj[product.id])
+    //console.log(obj, obj[product.id])
+
+    useEffect(() => {
+
+       
+
+    }, [currentSale]);
     
 
     return (
 
         <>
+
             {
-                
-
+                    
                 <li id={product.id}>
-
                     
                     <figure>
                         <span>{obj[product.id]}</span>
@@ -41,16 +49,10 @@ const CartProduct = ({ product, currentSale, counter, setCounter }) => {
 
                     <span>{product.category}</span>
 
-                    <button onClick={(event) => {
+                    <button onClick={(event) => handleClick(Number(event.target.closest('li').id), "remove")}>Remover</button>
 
-                        //setCounter(counter - 1);
+                </li>  
 
-                        handleClick(Number(event.target.closest('li').id), "remove");
-
-                    }}>Remover</button>
-
-                </li>
-                        
             }
                 
         </>

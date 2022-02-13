@@ -22,13 +22,7 @@ const Product = ({ product, counter, setCounter, filtered, setFiltered }) => {
     
                     <p className="productValue">{`R$${product.price.toFixed(2).replace('.',',')}`}</p>
     
-                    <button onClick={(event) => {
-
-                        //setCounter(counter + 1);
-    
-                        handleClick(Number(event.target.closest('li').id));
-    
-                    }}>Adicionar</button>
+                    <button onClick={(event) => handleClick(Number(event.target.closest('li').id))}>Adicionar</button>
                     
                 </li>
 
