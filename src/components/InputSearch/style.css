@@ -1,0 +1,60 @@
+label {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    background-color: #FFF;
+    margin-bottom: 15px;
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    border: 2px solid #E0E0E0;
+    cursor: pointer;
+}
+
+form:hover {
+    border: 2px solid #333;
+}
+
+ form input[type="text"] {
+    border: none;
+    color: #828282;
+    font-size: 16px;
+    cursor: pointer;
+    width: 60%;
+}
+
+form input[type="text"]:focus {
+    outline: none;
+}
+
+form input[type="submit"] {
+    background-color: #27AE60;
+    border: none;
+    border-radius: 5px;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 14px;
+    width: 107px;
+    height: 40px;
+    padding: 0;
+}
+
+@media (min-width: 900px) {
+
+    label {
+        width: 365px;
+        margin-right: 5%;
+    }
+
+    form {
+        margin: 10px 5%;
+        width: 365px;
+    }
+
+}

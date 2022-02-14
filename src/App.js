@@ -29,7 +29,7 @@ function App() {
     } , []);
     
 
-    handleClick = (productId, action) => {
+   handleClick = (productId, action) => {
         
         if(action === 'remove') {
 
@@ -48,20 +48,20 @@ function App() {
     }
 
     showProducts = (event) => {
-        
         event.preventDefault();
-
+        
         setFiltered(event.target.firstChild.value === "" ? false : true);
         
-        event.target.firstChild.value = "";
-        event.target.firstChild.focus();
-
-        setFilteredProducts(products.filter(product => {
-
+        
+        setFilteredProducts(event.target.firstChild.value === "" ? [] : products.filter(product => {
+            
             return product.name.toLowerCase().includes(inputValue.toLowerCase()) || product.category.toLowerCase().includes(inputValue.toLowerCase());
             
         }));
 
+        event.target.firstChild.value = "";
+        event.target.firstChild.focus();
+         
     }
 
     return (
@@ -72,7 +72,7 @@ function App() {
 
             <main className="mainContainer">
 
-                <ProductsList products={products} filteredProducts={filteredProducts} currentSale={currentSale} setCurrentSale={setCurrentSale} filtered={filtered} setFiltered={setFiltered} counter={counter} setCounter={setCounter}/>
+                <ProductsList products={products} filteredProducts={filteredProducts} currentSale={currentSale} setCurrentSale={setCurrentSale} filtered={filtered} setFiltered={setFiltered} counter={counter} setCounter={setCounter}  inputValue={inputValue}/>
 
                 <Cart products={products} currentSale={currentSale} setCurrentSale={setCurrentSale} counter={counter} setCounter={setCounter}/>
 

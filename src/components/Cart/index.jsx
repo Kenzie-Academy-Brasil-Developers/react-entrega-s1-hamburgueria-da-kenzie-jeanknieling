@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import CartProduct from '../CartProduct';
 import CartTotal from '../CartTotal';
 import './style.css';
@@ -17,8 +16,6 @@ const Cart = ({ products, currentSale, setCurrentSale, counter, setCounter }) =>
 
             productsLimite = [...productsLimite, currentSale[i]];
 
-            console.log(currentSale[i], productsLimite);
-
             obj[currentSale[i].id] = 1;
 
         } else {
@@ -29,22 +26,37 @@ const Cart = ({ products, currentSale, setCurrentSale, counter, setCounter }) =>
         
     }
 
-    //console.log(obj, productsLimite) 
-
     return (
 
         <section className="cart">
         
             <h2>Carrinho de compras</h2>
 
-            <ul>
-            
-                {
+            {
 
-                    productsLimite.map((product, index) => <CartProduct product={product} currentSale={currentSale} setCurrentSale={setCurrentSale} key={index} counter={counter} setCounter={setCounter} productsLimite={productsLimite}/>)
-                }
+                currentSale.length === 0 ? (
 
-            </ul>
+                    <div className="emptyCart">
+                        <p>Sua sacola está vazia</p>
+                        <span>Adicione itens</span>
+                    </div>
+                    
+                )
+
+                : (
+
+                    <ul>
+                    
+                        {
+
+                            productsLimite.map((product, index) => <CartProduct product={product} currentSale={currentSale} setCurrentSale={setCurrentSale} key={index} counter={counter} setCounter={setCounter} productsLimite={productsLimite}/>)
+                        }
+
+                    </ul>
+                
+                )
+
+            }
 
             {
 

@@ -2,12 +2,22 @@
   text-align: center;
 }
 
-.mainContainer {
+main.mainContainer {
+    margin: 15px 0 0 15px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 5px;
-    width: 100%;
+}
+
+main.mainContainer .searchResult {
+    color: #333;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: start;
+}
+
+main.mainContainer .searchResult span {
+    color: #828282;
 }
 
 @media(min-width: 900px) {

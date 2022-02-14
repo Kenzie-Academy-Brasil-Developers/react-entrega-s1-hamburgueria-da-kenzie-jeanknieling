@@ -6,18 +6,16 @@ const CartTotal = ({ totalValue, setCurrentSale, counter, setCounter }) => {
 
         <>
         
-            <div>
+            <div className="cartTotalValue">
             
-                <p>Total</p>
-                <p>R$ {totalValue.toFixed(2).replace('.',',')}</p>
+                <p className="pTotal">Total</p>
+                <p className="value">R$ {totalValue.toFixed(2).replace('.',',')}</p>
             
             </div>
 
-            <button onClick={() => {
+            <button className="removeButton" onClick={() => {
 
                 setCurrentSale([]);
-
-                //setCounter(counter - counter);
 
             }}>Remover todos</button>
 

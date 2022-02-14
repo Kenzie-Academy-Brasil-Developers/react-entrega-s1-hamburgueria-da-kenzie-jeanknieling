@@ -33,21 +33,32 @@ const CartProduct = ({ product, currentSale, productsLimite, counter, setCounter
 
             {
                     
-                <li id={product.id}>
+                <li className="cartProduct" id={product.id}>
+
+                    <div className="cartProductInformationsContainer">
+                        <div className="cartProductsImages">
+
+                            <figure>
+                                <span>{obj[product.id]}</span>
+                                
+                                <img className="mini-cart" src={CartImage} alt={`Imagem ilustrativa de quantidade no carrinho`}/>
+                            </figure>
+
+                            <figure>
+                                <img className="productImage" src={product.img} alt={`Imagem do produto ${product.name}`}/>
+                            </figure>
+
+                        </div>
                     
-                    <figure>
-                        <span>{obj[product.id]}</span>
-                        <img className="mini-car" src={CartImage} alt={`Imagem ilustrativa de quantidade no carrinho`}/>
-                    </figure>
-                    
+                        <div className="cartProductInformations">
 
-                    <figure>
-                        <img src={product.img} alt={`Imagem do produto ${product.name}`}/>
-                    </figure>
+                            <h4>{product.name}</h4>
 
-                    <p>{product.name}</p>
+                            <p>{product.category}</p>
 
-                    <span>{product.category}</span>
+                        </div>
+
+                    </div>
 
                     <button onClick={(event) => handleClick(Number(event.target.closest('li').id), "remove")}>Remover</button>
 

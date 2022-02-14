@@ -1,15 +1,19 @@
 import Product from '../Product';
 import './style.css';
 
-const ProductsList = ({ products, currentSale, setCurrentSale, counter, setCounter, filtered, setFiltered, filteredProducts }) => {
-
-    console.log(filtered, filteredProducts, products)
+const ProductsList = ({ products, currentSale, setCurrentSale, counter, setCounter, filtered, setFiltered, filteredProducts, inputValue }) => {
 
     return (
 
         <>
+
+            {
+
+                filtered && <p className="searchResult">Resultados para: <span>{inputValue}</span></p>
+            
+            }
         
-            <ul>
+            <ul className={filteredProducts.length === 1 ? "centeredProductList" : "productsList"}>
             
                 {
 

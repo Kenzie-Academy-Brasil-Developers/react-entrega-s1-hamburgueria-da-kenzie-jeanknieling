@@ -6,7 +6,7 @@ const Logo = () => {
 
         <>
 
-            <h1>Burguer <span>kenzie</span></h1>
+            <h1>Burguer <span>Kenzie</span></h1>
         
         </>
 
