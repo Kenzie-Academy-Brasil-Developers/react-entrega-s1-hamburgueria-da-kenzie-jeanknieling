@@ -4,7 +4,7 @@ import CartImage from '../images/shopping-cart.png';
 import './style.css';
 
 
-const CartProduct = ({ product, currentSale, productsLimite, counter, setCounter }) => {
+const CartProduct = ({ product, currentSale }) => {
 
     const obj = {}
                 

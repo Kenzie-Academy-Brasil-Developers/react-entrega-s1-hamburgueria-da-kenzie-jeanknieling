@@ -20,13 +20,14 @@ main.mainContainer .searchResult span {
     color: #828282;
 }
 
-@media(min-width: 900px) {
+@media (min-width: 900px) {
 
-    .mainContainer {
+    main.mainContainer {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
-        align-items: flex-start;
+        justify-content: center;
+        margin: 0 50px;
     }
 
 }
+

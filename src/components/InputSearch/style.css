@@ -48,13 +48,13 @@ form input[type="submit"] {
 @media (min-width: 900px) {
 
     label {
-        width: 365px;
+        width: 465px;
         margin-right: 5%;
     }
 
     form {
         margin: 10px 5%;
-        width: 365px;
+        width: 465px;
     }
 
 }

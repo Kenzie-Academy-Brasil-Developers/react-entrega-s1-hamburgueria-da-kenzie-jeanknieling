@@ -2,7 +2,7 @@ import { handleClick } from '../../App';
 import './style.css';
 
 
-const Product = ({ product, counter, setCounter, filtered, setFiltered }) => {
+const Product = ({ product }) => {
 
     return (
 

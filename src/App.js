@@ -28,16 +28,16 @@ function App() {
 
     } , []);
     
-
-   handleClick = (productId, action) => {
+    //console.log(currentSale)
+    handleClick = (productId, action) => {
         
         if(action === 'remove') {
 
-            let auxArr = [...currentSale];
+            const auxArr = [...currentSale];
 
-            auxArr = currentSale.splice(currentSale.findIndex(product => product.id === productId), 1);
+            auxArr.splice(currentSale.findIndex(product => product.id === productId), 1);
             
-            setCurrentSale([...currentSale]);
+            setCurrentSale([...auxArr]);
 
         } else {
 
@@ -48,6 +48,9 @@ function App() {
     }
 
     showProducts = (event) => {
+
+        console.log(inputValue)
+
         event.preventDefault();
         
         setFiltered(event.target.firstChild.value === "" ? false : true);
@@ -72,7 +75,7 @@ function App() {
 
             <main className="mainContainer">
 
-                <ProductsList products={products} filteredProducts={filteredProducts} currentSale={currentSale} setCurrentSale={setCurrentSale} filtered={filtered} setFiltered={setFiltered} counter={counter} setCounter={setCounter}  inputValue={inputValue}/>
+                <ProductsList products={products} filteredProducts={filteredProducts}  filtered={filtered} inputValue={inputValue}/>
 
                 <Cart products={products} currentSale={currentSale} setCurrentSale={setCurrentSale} counter={counter} setCounter={setCounter}/>
 

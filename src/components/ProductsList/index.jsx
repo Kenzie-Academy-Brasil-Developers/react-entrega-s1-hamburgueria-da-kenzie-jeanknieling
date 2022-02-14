@@ -1,11 +1,11 @@
 import Product from '../Product';
 import './style.css';
 
-const ProductsList = ({ products, currentSale, setCurrentSale, counter, setCounter, filtered, setFiltered, filteredProducts, inputValue }) => {
+const ProductsList = ({ products, filtered, filteredProducts, inputValue }) => {
 
     return (
 
-        <>
+        <section className="vitrineContainer">
 
             {
 
@@ -21,7 +21,7 @@ const ProductsList = ({ products, currentSale, setCurrentSale, counter, setCount
 
                     filteredProducts.map((product, index) => (
 
-                            <Product products={products} product={product} currentSale={currentSale} setCurrentSale={setCurrentSale} index={index} counter={counter} setCounter={setCounter} filtered={filtered} setFiltered={setFiltered} key={index}/>
+                            <Product  product={product}  key={index}/>
 
                         )) 
 
@@ -29,7 +29,7 @@ const ProductsList = ({ products, currentSale, setCurrentSale, counter, setCount
                     
                         products.map((product, index) => (
 
-                        <Product products={products} product={product} currentSale={currentSale} setCurrentSale={setCurrentSale} index={index} counter={counter} setCounter={setCounter} filtered={filtered} setFiltered={setFiltered} key={index}/>
+                        <Product  product={product}  key={index}/>
 
                     ))
 
@@ -37,7 +37,7 @@ const ProductsList = ({ products, currentSale, setCurrentSale, counter, setCount
 
             </ul>
 
-        </>
+        </section>
 
     );
 

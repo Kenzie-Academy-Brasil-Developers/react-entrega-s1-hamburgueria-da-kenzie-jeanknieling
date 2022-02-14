@@ -1,3 +1,7 @@
+section.vitrineContainer .searchResult {
+    margin: 15px 50px 0 5px;
+}
+
 ul.productsList {
     display: flex;
     overflow: scroll;
@@ -8,4 +12,25 @@ ul.centeredProductList {
     display: flex;
     justify-content: center;
     margin-right: 15px;
+}
+
+@media (min-width: 900px) {
+
+    ul.productsList {
+        max-width: 940px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 15px;
+        margin-right: 15px;
+        overflow: hidden;
+    }
+
+    ul.centeredProductList {
+        max-width: 940px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 15px;
+        margin-right: 15px;
+    }
 }

@@ -2,7 +2,7 @@ import CartProduct from '../CartProduct';
 import CartTotal from '../CartTotal';
 import './style.css';
 
-const Cart = ({ products, currentSale, setCurrentSale, counter, setCounter }) => {
+const Cart = ({ currentSale, setCurrentSale, counter, setCounter }) => {
 
     const totalValue = currentSale.reduce((acc, curr) => acc + curr.price, 0);
 
